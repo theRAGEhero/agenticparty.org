@@ -1,0 +1,94 @@
+{{ define "main" }}
+<section class="subpage-shell">
+    <article class="window article-window">
+        <div class="window-header">
+            <span class="window-title">{{ .Title }}</span>
+            <div class="window-controls">
+                <span class="window-button">_</span>
+                <span class="window-button">□</span>
+                <span class="window-button">×</span>
+            </div>
+        </div>
+        <div class="window-content">
+            <header class="article-header">
+                {{ if eq .Section "posts" }}
+                <p class="section-kicker">Manifesto File</p>
+                {{ else }}
+                <p class="section-kicker">Document</p>
+                {{ end }}
+                <h1 class="subpage-title">{{ .Title }}</h1>
+                {{ with .Description }}
+                <p class="subpage-deck">{{ . }}</p>
+                {{ end }}
+
+                <div class="article-meta-row">
+                    <span>{{ .Date.Format "January 2, 2006" }}</span>
+                    <span>{{ .ReadingTime }} min read</span>
+                    <span>{{ .WordCount }} words</span>
+                    {{ with .Params.author }}<span>{{ . }}</span>{{ end }}
+                </div>
+            </header>
+
+            {{ if and .Params.toc (.TableOfContents) }}
+            <div class="article-toc">
+                <div class="window-header window-header-mini">
+                    <span class="window-title">Contents</span>
+                    <div class="window-controls">
+                        <span class="window-button">_</span>
+                        <span class="window-button">□</span>
+                        <span class="window-button">×</span>
+                    </div>
+                </div>
+                {{ .TableOfContents }}
+            </div>
+            {{ end }}
+
+            <div class="content article-content">
+                {{ .Content }}
+            </div>
+        </div>
+    </article>
+
+    {{ if or .PrevInSection .NextInSection }}
+    <section class="window article-window">
+        <div class="window-header">
+            <span class="window-title">Navigation</span>
+            <div class="window-controls">
+                <span class="window-button">_</span>
+                <span class="window-button">□</span>
+                <span class="window-button">×</span>
+            </div>
+        </div>
+        <div class="window-content">
+            <div class="article-nav-grid">
+                {{ with .PrevInSection }}
+                <a class="reading-card archive-card article-nav-card" href="{{ .Permalink }}">
+                    <span class="card-index">Prev</span>
+                    <h3>{{ .Title }}</h3>
+                    <p>{{ .Date.Format "Jan 2, 2006" }}</p>
+                </a>
+                {{ else }}
+                <div class="reading-card archive-card article-nav-card empty-card">
+                    <span class="card-index">Prev</span>
+                    <h3>No earlier file</h3>
+                </div>
+                {{ end }}
+
+                {{ with .NextInSection }}
+                <a class="reading-card archive-card article-nav-card" href="{{ .Permalink }}">
+                    <span class="card-index">Next</span>
+                    <h3>{{ .Title }}</h3>
+                    <p>{{ .Date.Format "Jan 2, 2006" }}</p>
+                </a>
+                {{ else }}
+                <div class="reading-card archive-card article-nav-card empty-card">
+                    <span class="card-index">Next</span>
+                    <h3>No later file</h3>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </section>
+    {{ end }}
+</section>
+{{ end }}

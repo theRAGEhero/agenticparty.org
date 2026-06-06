@@ -1,0 +1,86 @@
+{{ define "main" }}
+<section class="subpage-shell">
+    <section class="subpage-hero window">
+        <div class="window-header">
+            <span class="window-title">
+                {{ if eq .Kind "term" }}{{ .Data.Term }}{{ else }}{{ .Title }}{{ end }}
+            </span>
+            <div class="window-controls">
+                <span class="window-button">_</span>
+                <span class="window-button">□</span>
+                <span class="window-button">×</span>
+            </div>
+        </div>
+        <div class="window-content">
+            <p class="section-kicker">
+                {{ if eq .Section "posts" }}Manifesto Archive{{ else if eq .Kind "term" }}Filtered View{{ else }}Section View{{ end }}
+            </p>
+            <h1 class="subpage-title">
+                {{ if eq .Section "posts" }}
+                Arguments, designs, and political operating notes.
+                {{ else if eq .Kind "term" }}
+                Everything filed under {{ .Data.Term }}.
+                {{ else }}
+                {{ .Title }}
+                {{ end }}
+            </h1>
+            {{ if .Description }}
+            <p class="subpage-deck">{{ .Description }}</p>
+            {{ else if .Content }}
+            <div class="subpage-deck content">{{ .Content }}</div>
+            {{ end }}
+        </div>
+    </section>
+
+    {{ if .Pages }}
+    <section class="window archive-window">
+        <div class="window-header">
+            <span class="window-title">Open Files</span>
+            <div class="window-controls">
+                <span class="window-button">_</span>
+                <span class="window-button">□</span>
+                <span class="window-button">×</span>
+            </div>
+        </div>
+        <div class="window-content">
+            <div class="reading-grid archive-grid">
+                {{ range .Pages.ByDate.Reverse }}
+                <article class="reading-card archive-card">
+                    <div class="archive-meta">
+                        <span>{{ .Date.Format "Jan 2, 2006" }}</span>
+                        {{ with .ReadingTime }}<span>{{ . }} min read</span>{{ end }}
+                    </div>
+                    <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+                    {{ with .Description }}
+                    <p>{{ . }}</p>
+                    {{ else }}
+                    <p>{{ .Summary | plainify | truncate 150 }}</p>
+                    {{ end }}
+                </article>
+                {{ end }}
+            </div>
+        </div>
+    </section>
+    {{ end }}
+
+    {{ if and (eq .Section "posts") (.Site.Taxonomies.categories) }}
+    <section class="window archive-window">
+        <div class="window-header">
+            <span class="window-title">Browse by Category</span>
+            <div class="window-controls">
+                <span class="window-button">_</span>
+                <span class="window-button">□</span>
+                <span class="window-button">×</span>
+            </div>
+        </div>
+        <div class="window-content">
+            <div class="principles-list archive-taxonomy">
+                {{ range $name, $pages := .Site.Taxonomies.categories }}
+                <a href="{{ "/categories/" | relLangURL }}{{ $name | urlize }}">{{ $name | title }} ({{ len $pages }})</a>
+                {{ end }}
+            </div>
+        </div>
+    </section>
+    {{ end }}
+</section>
+{{ end }}
