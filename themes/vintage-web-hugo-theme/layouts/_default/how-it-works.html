@@ -1,0 +1,174 @@
+{{ define "main" }}
+<section class="crt-shell">
+    <article class="window crt-window">
+        <div class="window-header">
+            <span class="window-title">How It Works</span>
+            <div class="window-controls">
+                <span class="window-button">_</span>
+                <span class="window-button">□</span>
+                <span class="window-button">×</span>
+            </div>
+        </div>
+
+        <div class="crt-content">
+            <header class="crt-intro">
+                <p class="section-kicker">How it works</p>
+                <h1>Small machines that turn participation into decisions.</h1>
+                <p>Each panel is a working sketch of one capability &mdash; how the platform is hosted, how it gathers people, how contributions become teams and decisions, and how all of it stays legible.</p>
+            </header>
+
+            {{/* 01 topology */}}
+            <section class="crt-card">
+                <div class="crt-card-head"><span class="crt-card-index">01</span><h2 class="crt-card-title">Where it runs</h2></div>
+                <p class="crt-card-lead">One party on its own platform, many parties hosted together on shared infrastructure, or a federation of independent platforms that interlink &mdash; the same software, deployed to fit the political reality.</p>
+                <aside class="terminal-panel topo-module" data-topo data-topo-active="single" aria-label="Deployment topology">
+                    <div class="terminal-topbar">
+                        <span class="terminal-dot dot-red"></span><span class="terminal-dot dot-amber"></span><span class="terminal-dot dot-green"></span>
+                        <span class="terminal-label">deploy-topology.sh</span>
+                        <div class="topo-modes" role="group" aria-label="Deployment mode">
+                            <button type="button" class="topo-mode-btn" data-topo-mode="single" aria-pressed="true">Single</button>
+                            <button type="button" class="topo-mode-btn" data-topo-mode="shared" aria-pressed="false">Shared</button>
+                            <button type="button" class="topo-mode-btn" data-topo-mode="federated" aria-pressed="false">Federated</button>
+                        </div>
+                    </div>
+                    <div class="terminal-screen topo-screen">
+                        <canvas class="topo-canvas" data-topo-canvas role="img" aria-label="Single deployment: one political party connected to one dedicated platform."></canvas>
+                        <p class="topo-caption" data-topo-caption aria-live="polite"><span class="prompt">mode:</span> SINGLE <span class="term-accent">// one party &middot; one dedicated platform</span></p>
+                        <p class="topo-desc">Three deployment options &mdash; <strong>Single</strong>: one party on one dedicated platform; <strong>Shared</strong>: many parties on one multi-tenant platform; <strong>Federated</strong>: each party runs its own platform, interlinked.</p>
+                    </div>
+                </aside>
+            </section>
+
+            {{/* 02 reach */}}
+            <section class="crt-card">
+                <div class="crt-card-head"><span class="crt-card-index">02</span><h2 class="crt-card-title">It gathers people</h2></div>
+                <p class="crt-card-lead">Citizens and elected representatives converge on one place. The platform's job is to make joining easy and keep representation connected to the people it actually speaks for.</p>
+                <aside class="terminal-panel topo-module" aria-label="Reach: citizens and representatives joining the platform">
+                    <div class="terminal-topbar"><span class="terminal-dot dot-red"></span><span class="terminal-dot dot-amber"></span><span class="terminal-dot dot-green"></span><span class="terminal-label">reach.sh</span></div>
+                    <div class="terminal-screen topo-screen">
+                        <canvas class="topo-canvas" data-crt="reach" role="img" aria-label="Citizens stream onto a central platform; some become linked elected representatives."></canvas>
+                        <p class="topo-caption"><span class="prompt">signal:</span> citizens dock onto the platform &middot; every fifth is a linked representative.</p>
+                    </div>
+                </aside>
+            </section>
+
+            {{/* 03 synthesize */}}
+            <section class="crt-card">
+                <div class="crt-card-head"><span class="crt-card-index">03</span><h2 class="crt-card-title">Listening without flattening</h2></div>
+                <p class="crt-card-lead">Thousands of raw contributions don't have to become mush. The platform clusters them into clear themes while keeping minority and dissenting voices visibly attached &mdash; nothing gets averaged away.</p>
+                <aside class="terminal-panel topo-module" aria-label="Synthesize: contributions clustered into themes with dissent preserved">
+                    <div class="terminal-topbar"><span class="terminal-dot dot-red"></span><span class="terminal-dot dot-amber"></span><span class="terminal-dot dot-green"></span><span class="terminal-label">synthesize.sh</span></div>
+                    <div class="terminal-screen topo-screen">
+                        <canvas class="topo-canvas" data-crt="synthesize" role="img" aria-label="Many raw contributions cluster into themes while dissenting markers stay visibly attached."></canvas>
+                        <p class="topo-caption"><span class="prompt">signal:</span> themes emerge &middot; dissent stays visible, not averaged away.</p>
+                    </div>
+                </aside>
+            </section>
+
+            {{/* 04 converge */}}
+            <section class="crt-card">
+                <div class="crt-card-head"><span class="crt-card-index">04</span><h2 class="crt-card-title">It turns positions into teams</h2></div>
+                <p class="crt-card-lead">Where people already agree, the platform surfaces the convergence and helps it become a real working group instead of staying scattered.</p>
+                <aside class="terminal-panel topo-module" aria-label="Converge: shared positions forming working groups">
+                    <div class="terminal-topbar"><span class="terminal-dot dot-red"></span><span class="terminal-dot dot-amber"></span><span class="terminal-dot dot-green"></span><span class="terminal-label">converge.sh</span></div>
+                    <div class="terminal-screen topo-screen">
+                        <canvas class="topo-canvas" data-crt="converge" role="img" aria-label="Scattered citizens with shared positions cluster into named working groups."></canvas>
+                        <p class="topo-caption"><span class="prompt">signal:</span> shared positions cluster into named working groups.</p>
+                    </div>
+                </aside>
+            </section>
+
+            {{/* 05 deliberate */}}
+            <section class="crt-card">
+                <div class="crt-card-head"><span class="crt-card-index">05</span><h2 class="crt-card-title">Disagreement, organized</h2></div>
+                <p class="crt-card-lead">Conflict is not the enemy of a healthy party &mdash; unstructured conflict is. Arguments for and against a question sort into a legible structure instead of a flame war.</p>
+                <aside class="terminal-panel topo-module" aria-label="Deliberate: arguments organized for and against a question">
+                    <div class="terminal-topbar"><span class="terminal-dot dot-red"></span><span class="terminal-dot dot-amber"></span><span class="terminal-dot dot-green"></span><span class="terminal-label">deliberate.sh</span></div>
+                    <div class="terminal-screen topo-screen">
+                        <canvas class="topo-canvas" data-crt="deliberate" role="img" aria-label="Scattered arguments organize into pro and con columns around a central question."></canvas>
+                        <p class="topo-caption"><span class="prompt">signal:</span> pro and con, structured around the question &mdash; not a flame war.</p>
+                    </div>
+                </aside>
+            </section>
+
+            {{/* 06 delegate */}}
+            <section class="crt-card">
+                <div class="crt-card-head"><span class="crt-card-index">06</span><h2 class="crt-card-title">A voice you can lend &mdash; and reclaim</h2></div>
+                <p class="crt-card-lead">Delegate your vote on a topic to someone you trust, and take it straight back whenever you want. Representation becomes flexible and revocable, topic by topic.</p>
+                <aside class="terminal-panel topo-module" aria-label="Delegate: lending and reclaiming your vote by topic">
+                    <div class="terminal-topbar"><span class="terminal-dot dot-red"></span><span class="terminal-dot dot-amber"></span><span class="terminal-dot dot-green"></span><span class="terminal-label">delegate.sh</span></div>
+                    <div class="terminal-screen topo-screen">
+                        <canvas class="topo-canvas" data-crt="delegate" role="img" aria-label="A vote token travels from a citizen to a delegate and back, showing revocable delegation."></canvas>
+                        <p class="topo-caption"><span class="prompt">signal:</span> lend your voice on a topic &middot; reclaim it anytime.</p>
+                    </div>
+                </aside>
+            </section>
+
+            {{/* 07 trace */}}
+            <section class="crt-card">
+                <div class="crt-card-head"><span class="crt-card-index">07</span><h2 class="crt-card-title">Listening leaves a trace</h2></div>
+                <p class="crt-card-lead">Every contribution can be followed all the way through: raised by a citizen, shaping a decision, and returning as a visible outcome. Participation you can actually track.</p>
+                <aside class="terminal-panel topo-module" aria-label="Trace: a contribution travels from citizen to decision to outcome and back">
+                    <div class="terminal-topbar"><span class="terminal-dot dot-red"></span><span class="terminal-dot dot-amber"></span><span class="terminal-dot dot-green"></span><span class="terminal-label">trace.sh</span></div>
+                    <div class="terminal-screen topo-screen">
+                        <canvas class="topo-canvas" data-crt="trace" role="img" aria-label="A token travels a loop from citizen through listen and decide to outcome and back."></canvas>
+                        <p class="topo-caption"><span class="prompt">signal:</span> contribution &rarr; decision &rarr; visible outcome, back to the citizen.</p>
+                    </div>
+                </aside>
+            </section>
+
+            {{/* 08 ledger */}}
+            <section class="crt-card">
+                <div class="crt-card-head"><span class="crt-card-index">08</span><h2 class="crt-card-title">It stays honest</h2></div>
+                <p class="crt-card-lead">Every consequential action &mdash; a vote, a fund, a decision &mdash; is signed, timestamped and public. Tampering with the record is detected and rejected, never quietly hidden.</p>
+                <aside class="terminal-panel topo-module" aria-label="Ledger: a tamper-evident public record">
+                    <div class="terminal-topbar"><span class="terminal-dot dot-red"></span><span class="terminal-dot dot-amber"></span><span class="terminal-dot dot-green"></span><span class="terminal-label">public-ledger.sh</span></div>
+                    <div class="terminal-screen topo-screen">
+                        <canvas class="topo-canvas" data-crt="ledger" role="img" aria-label="A public append-only ledger; an attempt to alter a past entry is rejected."></canvas>
+                        <p class="topo-caption"><span class="prompt">signal:</span> an append-only public record &middot; edits to the past are rejected.</p>
+                    </div>
+                </aside>
+            </section>
+
+            {{/* 09 roles */}}
+            <section class="crt-card">
+                <div class="crt-card-head"><span class="crt-card-index">09</span><h2 class="crt-card-title">A person is more than an elector</h2></div>
+                <p class="crt-card-lead">The same citizen can vote, contribute, organize, join a working group and hold leadership to account &mdash; often at once. Agency accumulates; it isn't a single box to tick.</p>
+                <aside class="terminal-panel topo-module" aria-label="Roles: a citizen accumulating roles">
+                    <div class="terminal-topbar"><span class="terminal-dot dot-red"></span><span class="terminal-dot dot-amber"></span><span class="terminal-dot dot-green"></span><span class="terminal-label">roles.sh</span></div>
+                    <div class="terminal-screen topo-screen">
+                        <canvas class="topo-canvas" data-crt="roles" role="img" aria-label="One citizen node lighting up accumulating roles: elector, contributor, activist, working group, delegate."></canvas>
+                        <p class="topo-caption"><span class="prompt">signal:</span> one person, many roles &mdash; accumulating, not either/or.</p>
+                    </div>
+                </aside>
+            </section>
+
+            {{/* 10 collective */}}
+            <section class="crt-card">
+                <div class="crt-card-head"><span class="crt-card-index">10</span><h2 class="crt-card-title">The whole is smarter than its parts</h2></div>
+                <p class="crt-card-lead">Put it together and something larger appears. The platform sits between the people and the party, turning thousands of separate contributions into shared intelligence &mdash; and carrying the party's direction back to the people.</p>
+                <aside class="terminal-panel topo-module" aria-label="Collective intelligence: the people, the platform and the party">
+                    <div class="terminal-topbar"><span class="terminal-dot dot-red"></span><span class="terminal-dot dot-amber"></span><span class="terminal-dot dot-green"></span><span class="terminal-label">collective.sh</span></div>
+                    <div class="terminal-screen topo-screen">
+                        <canvas class="topo-canvas" data-crt="collective" role="img" aria-label="Many citizens contribute through a central platform that mediates between the people and the party."></canvas>
+                        <p class="topo-caption"><span class="prompt">signal:</span> the people + the party, mediated by the platform &mdash; collective intelligence.</p>
+                    </div>
+                </aside>
+            </section>
+
+            {{/* 11 celebrate */}}
+            <section class="crt-card">
+                <div class="crt-card-head"><span class="crt-card-index">11</span><h2 class="crt-card-title">A party people are glad to join</h2></div>
+                <p class="crt-card-lead">All of this has one human payoff. When listening leaves a trace and participation actually moves things, belonging to a political community feels good again &mdash; not a chore to endure, but something citizens are happy to show up for.</p>
+                <aside class="terminal-panel topo-module" aria-label="Celebrate: citizens happy to participate">
+                    <div class="terminal-topbar"><span class="terminal-dot dot-red"></span><span class="terminal-dot dot-amber"></span><span class="terminal-dot dot-green"></span><span class="terminal-label">celebrate.sh</span></div>
+                    <div class="terminal-screen topo-screen">
+                        <canvas class="topo-canvas" data-crt="celebrate" role="img" aria-label="Happy citizens celebrating with confetti."></canvas>
+                        <p class="topo-caption"><span class="prompt">signal:</span> participation that people actually enjoy.</p>
+                    </div>
+                </aside>
+            </section>
+        </div>
+    </article>
+</section>
+{{ end }}

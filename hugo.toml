@@ -1158,6 +1158,74 @@ ignoreLogs = ["warning-goldmark-raw-html"]
       line-height: 1.6;
       color: var(--text-secondary);
     }
+    .contact-meeting {
+      margin-top: 6px;
+      padding-top: 16px;
+      border-top: 2px groove var(--button-face);
+      display: grid;
+      gap: 7px;
+    }
+    .contact-meeting-label {
+      width: fit-content;
+      padding: 4px 8px;
+      border: 1px inset var(--button-face);
+      background: #ffd36d;
+      color: #19120f;
+      font-family: "Courier New", monospace;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .contact-meeting-time,
+    .contact-meeting-zone,
+    .contact-meeting-copy {
+      margin: 0;
+    }
+    .contact-meeting-time {
+      color: var(--text-primary);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 25px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    .contact-meeting-zone {
+      color: var(--text-primary);
+      font-family: "Courier New", monospace;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+    .contact-meeting-copy {
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    .contact-meeting-link {
+      width: fit-content;
+      min-height: 44px;
+      margin-top: 3px;
+      padding: 10px 13px;
+      border: 2px outset #f3a0cf;
+      background: #f31a7c;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      box-sizing: border-box;
+      font-family: "Courier New", monospace;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.25;
+      text-decoration: none;
+      text-transform: uppercase;
+      text-shadow: 1px 1px 0 rgba(0,0,0,0.28);
+      box-shadow: 2px 2px 0 rgba(0,0,0,0.18), inset 1px 1px 0 rgba(255,255,255,0.38);
+    }
+    .contact-meeting-link:hover,
+    .contact-meeting-link:focus {
+      border-style: inset;
+      background: #ce1267;
+      color: #fff;
+    }
     @media (min-width: 1500px) {
       .container {
         max-width: 1240px;
@@ -1203,6 +1271,472 @@ ignoreLogs = ["warning-goldmark-raw-html"]
       display: grid;
       gap: 18px;
       justify-items: center;
+    }
+    .pathway-shell {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+    .pathway-window {
+      width: 100%;
+      margin: 0;
+      padding: 18px;
+    }
+    .pathway-window > .window-header {
+      margin: -18px -18px 18px;
+    }
+    .pathway-content {
+      display: grid;
+      gap: 22px;
+    }
+    .pathway-intro {
+      max-width: 780px;
+    }
+    .pathway-intro h1 {
+      max-width: 16ch;
+      margin: 0 0 12px;
+      color: var(--text-primary);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 46px;
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+    .pathway-intro > p:last-child {
+      max-width: 62ch;
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 17px;
+      line-height: 1.65;
+    }
+    .pathway-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      padding: 6px;
+      border: 1px inset var(--button-face);
+      background: rgba(218,211,231,0.72);
+    }
+    .pathway-tab {
+      min-width: 0;
+      min-height: 56px;
+      padding: 9px 12px;
+      border: 2px outset var(--button-face);
+      background: #ece7f4;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "Courier New", monospace;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: 0;
+      text-align: left;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .pathway-tab-code {
+      min-width: 28px;
+      height: 28px;
+      border: 1px inset var(--button-face);
+      background: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+    }
+    .pathway-tab[data-pathway-tab="citizen"].is-active {
+      background: #316ac5;
+      border-color: #316ac5;
+      color: #fff;
+    }
+    .pathway-tab[data-pathway-tab="party"].is-active {
+      background: #a93a5f;
+      border-color: #a93a5f;
+      color: #fff;
+    }
+    .pathway-tab[data-pathway-tab="researcher"].is-active {
+      background: #287455;
+      border-color: #287455;
+      color: #fff;
+    }
+    .pathway-tab.is-active {
+      border-style: inset;
+      text-shadow: 1px 1px 0 rgba(0,0,0,0.24);
+    }
+    .pathway-tab.is-active .pathway-tab-code {
+      color: #19120f;
+      text-shadow: none;
+    }
+    .pathway-tab:focus-visible,
+    .pathway-option:focus-visible {
+      outline: 3px solid #ffd36d;
+      outline-offset: 2px;
+    }
+    .pathway-panel[hidden] {
+      display: none;
+    }
+    .pathway-panel {
+      --pathway-accent: #316ac5;
+      display: grid;
+      gap: 16px;
+      animation: pathwayPanelIn 220ms ease-out;
+    }
+    .pathway-panel-party {
+      --pathway-accent: #a93a5f;
+    }
+    .pathway-panel-researcher {
+      --pathway-accent: #287455;
+    }
+    @keyframes pathwayPanelIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .pathway-panel-layout {
+      display: grid;
+      grid-template-columns: minmax(250px, .75fr) minmax(0, 1.25fr);
+      gap: 22px;
+      align-items: start;
+    }
+    .pathway-profile {
+      padding: 4px 0 4px 16px;
+      border-left: 6px solid var(--pathway-accent);
+    }
+    .pathway-mode {
+      color: var(--pathway-accent);
+      font-family: "Courier New", monospace;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+    .pathway-profile h2 {
+      margin: 8px 0 10px;
+      color: var(--text-primary);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+    .pathway-profile p {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .pathway-options {
+      border: 1px inset var(--button-face);
+      background: rgba(255,255,255,0.72);
+    }
+    .pathway-option {
+      min-height: 72px;
+      padding: 13px 44px 13px 14px;
+      border-bottom: 1px solid rgba(93,87,119,0.25);
+      color: var(--text-primary);
+      display: grid;
+      gap: 3px;
+      position: relative;
+      text-decoration: none;
+    }
+    .pathway-option:last-child {
+      border-bottom: 0;
+    }
+    .pathway-option::after {
+      content: "->";
+      position: absolute;
+      top: 50%;
+      right: 14px;
+      color: var(--pathway-accent);
+      font-family: "Courier New", monospace;
+      font-size: 18px;
+      font-weight: 700;
+      transform: translateY(-50%);
+    }
+    .pathway-option:hover {
+      background: var(--pathway-accent);
+      color: #fff;
+    }
+    .pathway-option:hover::after {
+      color: #fff;
+      transform: translate(3px, -50%);
+    }
+    .pathway-option-title {
+      font-family: "Courier New", monospace;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+    .pathway-option-copy {
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+    .pathway-option:hover .pathway-option-copy {
+      color: #fff;
+    }
+    .pathway-terminal {
+      width: 100%;
+      margin: 0;
+    }
+    .pathway-terminal .terminal-topbar {
+      border-left: 5px solid var(--pathway-accent);
+    }
+    .pathway-terminal .terminal-screen {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px 18px;
+    }
+    .pathway-terminal .terminal-screen p {
+      margin: 0;
+      overflow-wrap: anywhere;
+    }
+    /* Deployment topology (party pathway) — CRT canvas engine */
+    .topo-modes {
+      display: flex;
+      gap: 4px;
+      margin-left: auto;
+    }
+    .topo-mode-btn {
+      font: 700 10px/1 "Courier New", monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 3px 6px;
+      border: 2px outset var(--button-face);
+      background: #ece7f4;
+      color: #241c31;
+      cursor: pointer;
+    }
+    .topo-mode-btn[aria-pressed="true"] {
+      border-style: inset;
+      background: var(--pathway-accent);
+      color: #fff;
+    }
+    .topo-mode-btn:focus-visible {
+      outline: 3px solid #ffd36d;
+      outline-offset: 2px;
+    }
+    .topo-screen {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+    }
+    .topo-canvas {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 2 / 1;
+    }
+    .topo-screen::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2;
+      background: repeating-linear-gradient(180deg, rgba(0,0,0,0) 0 2px, rgba(0,0,0,0.28) 2px 3px);
+      mix-blend-mode: multiply;
+      animation: topoScan 8s steps(60, end) infinite;
+    }
+    .topo-screen::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 3;
+      background: radial-gradient(120% 120% at 50% 50%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.5) 100%);
+      animation: topoFlicker 2.2s steps(3, end) infinite;
+    }
+    .topo-caption {
+      position: relative;
+      z-index: 4;
+      margin: 0;
+      padding: 8px 12px 2px;
+      font-size: 12px;
+    }
+    .topo-desc {
+      position: relative;
+      z-index: 4;
+      margin: 0;
+      padding: 2px 12px 10px;
+      font-size: 11px;
+      color: #9fb59a;
+    }
+    @keyframes topoScan {
+      to { background-position: 0 240px; }
+    }
+    @keyframes topoFlicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.86; }
+    }
+    /* Make the topology module self-contained (works outside the party pathway) */
+    .topo-module {
+      --pathway-accent: #a93a5f;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .topo-module .terminal-topbar {
+      border-left: 4px solid var(--pathway-accent);
+    }
+    @media (min-width: 761px) {
+      .topo-module {
+        max-width: 82%;
+      }
+    }
+    /* "How it works" page: scrolling column of CRT explainer cards */
+    .crt-shell {
+      max-width: none;
+      margin: 0;
+    }
+    .crt-window {
+      padding: 22px;
+    }
+    .crt-window > .window-header {
+      margin: -22px -22px 20px;
+    }
+    .crt-content {
+      max-width: 1180px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .crt-intro {
+      margin-bottom: 26px;
+    }
+    .crt-intro .section-kicker {
+      display: inline-block;
+      font: 700 12px/1 "Courier New", monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #7a5a86;
+      margin: 0 0 10px;
+    }
+    .crt-intro h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 40px;
+      line-height: 1.04;
+      margin: 0 auto 12px;
+      max-width: 20ch;
+    }
+    .crt-intro p {
+      margin: 0 auto;
+      max-width: 68ch;
+      color: var(--text-secondary);
+    }
+    .crt-card {
+      margin: 0 0 26px;
+    }
+    .crt-card:last-child {
+      margin-bottom: 0;
+    }
+    .crt-card-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 10px;
+      margin: 0 0 8px;
+    }
+    .crt-card-index {
+      font: 700 12px/1 "Courier New", monospace;
+      color: var(--pathway-accent, #a93a5f);
+      border: 1px solid currentColor;
+      padding: 3px 5px;
+      flex: 0 0 auto;
+    }
+    .crt-card-title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 23px;
+      line-height: 1.15;
+      margin: 0;
+    }
+    .crt-card-lead {
+      margin: 0 auto 12px;
+      max-width: 74ch;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    .crt-prose-list {
+      list-style: none;
+      margin: 0 auto 14px;
+      padding: 0;
+      max-width: 78ch;
+      text-align: left;
+    }
+    .crt-prose-list li {
+      position: relative;
+      margin: 8px 0;
+      padding-left: 18px;
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--text-secondary);
+    }
+    .crt-prose-list li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: var(--pathway-accent, #a93a5f);
+    }
+    .crt-prose-list strong {
+      color: var(--text-primary);
+    }
+    .crt-hero-screen .topo-canvas {
+      height: auto;
+      aspect-ratio: 8 / 5;
+    }
+    @media (max-width: 760px) {
+      .crt-hero-screen .topo-canvas {
+        aspect-ratio: 3 / 2;
+      }
+    }
+    @media (max-width: 760px) {
+      .crt-window {
+        padding: 16px;
+      }
+      .crt-window > .window-header {
+        margin: -16px -16px 16px;
+      }
+      .crt-intro h1 {
+        font-size: 30px;
+        max-width: none;
+      }
+      .crt-card-title {
+        font-size: 20px;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .pathway-panel {
+        animation: none;
+      }
+      .topo-screen::before,
+      .topo-screen::after {
+        animation: none;
+      }
+    }
+    @media (max-width: 760px) {
+      .pathway-window {
+        padding: 16px;
+      }
+      .pathway-window > .window-header {
+        margin: -16px -16px 16px;
+      }
+      .pathway-intro h1 {
+        max-width: none;
+        font-size: 34px;
+      }
+      .pathway-tabs,
+      .pathway-panel-layout,
+      .pathway-terminal .terminal-screen {
+        grid-template-columns: 1fr;
+      }
+      .pathway-tab {
+        min-height: 52px;
+      }
+      .pathway-profile h2 {
+        font-size: 26px;
+      }
+      .pathway-option {
+        min-height: 68px;
+      }
     }
     .subpage-hero,
     .article-window,
@@ -2028,6 +2562,14 @@ ignoreLogs = ["warning-goldmark-raw-html"]
       }
       .contact-mail {
         font-size: 20px;
+      }
+      .contact-meeting-time {
+        font-size: 22px;
+      }
+      .contact-meeting-link {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
       }
       .status-left,
       .status-right {

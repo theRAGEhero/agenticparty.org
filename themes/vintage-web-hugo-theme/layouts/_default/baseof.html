@@ -3,22 +3,25 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ block "title" . }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
-    
+    <title>{{ block "title" . }}{{ if .IsHome }}{{ .Site.Title }} &mdash; {{ .Site.Params.seo_tagline | default "participatory infrastructure for political parties" }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}{{ end }}</title>
+
     <!-- Meta tags -->
     {{ with .Description }}
     <meta name="description" content="{{ . }}">
     {{ else }}
     <meta name="description" content="{{ .Site.Params.description | default .Site.Title }}">
     {{ end }}
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="{{ .Permalink }}">
     {{ $socialImage := .Params.featured_image | default .Site.Params.default_image | default "og-image.png" }}
     
     <!-- Open Graph -->
-    <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}">
+    <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }} — {{ .Site.Params.seo_tagline | default "participatory infrastructure for political parties" }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
     <meta property="og:description" content="{{ .Description | default .Site.Params.description }}">
     <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
     <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:site_name" content="{{ .Site.Title }}">
+    <meta property="og:locale" content="en_US">
     {{ with $socialImage }}
     <meta property="og:image" content="{{ . | absURL }}">
     {{ end }}
@@ -48,6 +51,35 @@
     <style>{{ . | safeCSS }}</style>
     {{ end }}
     
+    <!-- Structured data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": {{ (printf "%s#organization" .Site.BaseURL) | jsonify }},
+          "name": {{ .Site.Title | jsonify }},
+          "url": {{ .Site.BaseURL | jsonify }},
+          "logo": {{ ("og-image.png" | absURL) | jsonify }},
+          "image": {{ ("og-image.png" | absURL) | jsonify }},
+          "description": {{ .Site.Params.description | jsonify }},
+          "email": "hello@agenticparty.org",
+          "sameAs": ["https://t.me/agenticparty"]
+        },
+        {
+          "@type": "WebSite",
+          "@id": {{ (printf "%s#website" .Site.BaseURL) | jsonify }},
+          "url": {{ .Site.BaseURL | jsonify }},
+          "name": {{ .Site.Title | jsonify }},
+          "description": {{ .Site.Params.description | jsonify }},
+          "inLanguage": "en",
+          "publisher": { "@id": {{ (printf "%s#organization" .Site.BaseURL) | jsonify }} }
+        }
+      ]
+    }
+    </script>
+
     {{ block "head" . }}{{ end }}
 </head>
 <body>
@@ -122,8 +154,8 @@
     {{ if .Site.Params.show_status_bar }}
     <div class="status-bar">
         <div class="status-left">
-            <span class="status-item">{{ now.Format "Mon 02 Jan 2006" }}</span>
-            <span class="status-item">{{ now.Format "15:04" }}</span>
+            <span class="status-item status-date" aria-label="Current date">Loading date</span>
+            <span class="status-item status-time" aria-label="Current time">--:--</span>
         </div>
         <div class="status-right">
             <span class="status-item">{{ .Site.Title }}</span>

@@ -1,0 +1,135 @@
+{{ define "main" }}
+<section class="pathway-shell" data-pathway-selector>
+    <article class="window pathway-window">
+        <div class="window-header">
+            <span class="window-title">Participation Router</span>
+            <div class="window-controls">
+                <span class="window-button">_</span>
+                <span class="window-button">□</span>
+                <span class="window-button">×</span>
+            </div>
+        </div>
+
+        <div class="pathway-content">
+            <header class="pathway-intro">
+                <p class="section-kicker">Choose your path</p>
+                <h1>Where do you enter the transition?</h1>
+                <p>Democratic capacity looks different depending on where you stand. Select the role closest to your work.</p>
+            </header>
+
+            <div class="pathway-tabs" role="tablist" aria-label="Participation pathways">
+                <button class="pathway-tab is-active" id="pathway-tab-citizen" type="button" role="tab" aria-selected="true" aria-controls="pathway-citizen" data-pathway-tab="citizen">
+                    <span class="pathway-tab-code">01</span>
+                    <span>Citizen</span>
+                </button>
+                <button class="pathway-tab" id="pathway-tab-party" type="button" role="tab" aria-selected="false" aria-controls="pathway-party" tabindex="-1" data-pathway-tab="party">
+                    <span class="pathway-tab-code">02</span>
+                    <span>Political party</span>
+                </button>
+                <button class="pathway-tab" id="pathway-tab-researcher" type="button" role="tab" aria-selected="false" aria-controls="pathway-researcher" tabindex="-1" data-pathway-tab="researcher">
+                    <span class="pathway-tab-code">03</span>
+                    <span>Researcher</span>
+                </button>
+            </div>
+
+            <div class="pathway-panels">
+                <section class="pathway-panel pathway-panel-citizen" id="pathway-citizen" role="tabpanel" aria-labelledby="pathway-tab-citizen" data-pathway-panel="citizen">
+                    <div class="pathway-panel-layout">
+                        <div class="pathway-profile">
+                            <span class="pathway-mode">Citizen mode</span>
+                            <h2>Turn lived experience into a contribution that leaves a trace.</h2>
+                            <p>You know where systems fail in daily life. Bring a need, an idea, a concern or dissent into a process that can listen and respond.</p>
+                        </div>
+                        <div class="pathway-options" aria-label="Citizen options">
+                            <a class="pathway-option" href="https://luma.com/calendar/cal-vhkXWiUJoDDZJ6X" target="_blank" rel="noopener">
+                                <span class="pathway-option-title">Join the weekly call</span>
+                                <span class="pathway-option-copy">Enter the open conversation every Thursday at 18:00 CET/CEST.</span>
+                            </a>
+                            <a class="pathway-option" href="mailto:hello@agenticparty.org?subject=Citizen%20pathway%3A%20local%20challenge">
+                                <span class="pathway-option-title">Bring a local challenge</span>
+                                <span class="pathway-option-copy">Describe a problem that deserves a clearer participation route.</span>
+                            </a>
+                            <a class="pathway-option" href="https://t.me/agenticparty" target="_blank" rel="noopener">
+                                <span class="pathway-option-title">Enter the conversation</span>
+                                <span class="pathway-option-copy">Connect with the initiative through the open Telegram channel.</span>
+                            </a>
+                        </div>
+                    </div>
+                    <aside class="terminal-panel pathway-terminal" aria-label="Citizen pathway status">
+                        <div class="terminal-topbar"><span class="terminal-label">citizen-route.log</span></div>
+                        <div class="terminal-screen">
+                            <p><span class="prompt">input:</span> local knowledge</p>
+                            <p><span class="prompt">route:</span> listening with consequences</p>
+                            <p class="term-good">output: visible follow-up</p>
+                        </div>
+                    </aside>
+                </section>
+
+                <section class="pathway-panel pathway-panel-party" id="pathway-party" role="tabpanel" aria-labelledby="pathway-tab-party" data-pathway-panel="party" hidden>
+                    <div class="pathway-panel-layout">
+                        <div class="pathway-profile">
+                            <span class="pathway-mode">Party mode</span>
+                            <h2>Build an organization that can listen, decide and explain.</h2>
+                            <p>Move beyond campaign-only technology. Strengthen the pathways connecting members, communities, leadership and public decisions.</p>
+                        </div>
+                        <div class="pathway-options" aria-label="Political party options">
+                            <a class="pathway-option" href="mailto:hello@agenticparty.org?subject=Political%20party%20pathway%3A%20readiness%20diagnostic">
+                                <span class="pathway-option-title">Request a readiness diagnostic</span>
+                                <span class="pathway-option-copy">Map where listening, decisions and accountability currently break down.</span>
+                            </a>
+                            <a class="pathway-option" href="mailto:hello@agenticparty.org?subject=Political%20party%20pathway%3A%20listening%20process">
+                                <span class="pathway-option-title">Design a listening process</span>
+                                <span class="pathway-option-copy">Create a channel that connects contributions to an explicit decision route.</span>
+                            </a>
+                            <a class="pathway-option" href="mailto:hello@agenticparty.org?subject=Political%20party%20pathway%3A%20working%20session">
+                                <span class="pathway-option-title">Plan a working session</span>
+                                <span class="pathway-option-copy">Explore governance, tools and safeguards with your team.</span>
+                            </a>
+                        </div>
+                    </div>
+                    <aside class="terminal-panel pathway-terminal" aria-label="Political party pathway status">
+                        <div class="terminal-topbar"><span class="terminal-label">party-capacity.log</span></div>
+                        <div class="terminal-screen">
+                            <p><span class="prompt">input:</span> organizational challenge</p>
+                            <p><span class="prompt">route:</span> diagnostic + working process</p>
+                            <p class="term-good">output: legible decision pathway</p>
+                        </div>
+                    </aside>
+                </section>
+
+                <section class="pathway-panel pathway-panel-researcher" id="pathway-researcher" role="tabpanel" aria-labelledby="pathway-tab-researcher" data-pathway-panel="researcher" hidden>
+                    <div class="pathway-panel-layout">
+                        <div class="pathway-profile">
+                            <span class="pathway-mode">Research mode</span>
+                            <h2>Test the claims, document the methods and make learning public.</h2>
+                            <p>Bring theory, evidence and evaluation into the design of participatory political organizations without losing sight of practice.</p>
+                        </div>
+                        <div class="pathway-options" aria-label="Researcher options">
+                            <a class="pathway-option" href="mailto:hello@agenticparty.org?subject=Researcher%20pathway%3A%20collaboration">
+                                <span class="pathway-option-title">Propose a collaboration</span>
+                                <span class="pathway-option-copy">Connect a research question to a concrete organizational challenge.</span>
+                            </a>
+                            <a class="pathway-option" href="mailto:hello@agenticparty.org?subject=Researcher%20pathway%3A%20evidence%20or%20case">
+                                <span class="pathway-option-title">Share evidence or a case</span>
+                                <span class="pathway-option-copy">Contribute findings that sharpen, challenge or extend the model.</span>
+                            </a>
+                            <a class="pathway-option" href="mailto:hello@agenticparty.org?subject=Researcher%20pathway%3A%20evaluation%20methods">
+                                <span class="pathway-option-title">Evaluate a pilot</span>
+                                <span class="pathway-option-copy">Develop measures for trust, agency, participation quality and follow-up.</span>
+                            </a>
+                        </div>
+                    </div>
+                    <aside class="terminal-panel pathway-terminal" aria-label="Researcher pathway status">
+                        <div class="terminal-topbar"><span class="terminal-label">research-route.log</span></div>
+                        <div class="terminal-screen">
+                            <p><span class="prompt">input:</span> evidence + critical inquiry</p>
+                            <p><span class="prompt">route:</span> collaborative evaluation</p>
+                            <p class="term-good">output: documented learning</p>
+                        </div>
+                    </aside>
+                </section>
+            </div>
+        </div>
+    </article>
+</section>
+{{ end }}

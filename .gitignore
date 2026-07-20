@@ -3,3 +3,6 @@
 .gitdir/
 .hugo_build.lock
 resources/_gen/
+github_agenticparty_ed25519
+github_agenticparty_ed25519.pub
+.orca/
